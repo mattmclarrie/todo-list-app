@@ -7,13 +7,11 @@ const filters = {
 
 renderTodos(todos, filters)
 
-// Event listener for input field
 document.querySelector('#search-text').addEventListener('input', function (e) {
     filters.searchText = e.target.value
     renderTodos(todos, filters)
 })
 
-// Event listener for adding todo
 document.querySelector('#new-todo').addEventListener('submit', function (e) {
     e.preventDefault()
     todos.push({
@@ -23,15 +21,9 @@ document.querySelector('#new-todo').addEventListener('submit', function (e) {
     saveTodos(todos)
     renderTodos(todos, filters)
     e.target.elements.text.value = ''
-    
 })
 
-// Event listener for checkbox
 document.querySelector('#hide-completed').addEventListener('change', function (e) {
-        filters.hideCompleted = e.target.checked
-        renderTodos(todos, filters)
+    filters.hideCompleted = e.target.checked
+    renderTodos(todos, filters)
 })
-
-
-
-
