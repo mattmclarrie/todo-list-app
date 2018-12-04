@@ -2,11 +2,7 @@
 const getSavedTodos = () => {
     const todosJSON = localStorage.getItem('todos')
 
-    if (todosJSON !== null) {
-        return JSON.parse(todosJSON)
-    } else {
-        return []
-    }
+    return todosJSON ? JSON.parse(todosJSON) : []
 }
 
 // Save todos to localStorage
@@ -22,12 +18,12 @@ const removeTodo = (id) => {
         todos.splice(todoIndex, 1)
     }
 }
-
+    
 // Toggle the completed value for a given todo
 const toggleTodo = (id) => {
     const todo = todos.find((todo) => todo.id === id)
 
-    if (todo !== undefined) {
+    if (todo) {
         todo.completed = !todo.completed
     }
 }
